@@ -9,7 +9,7 @@ const network = NETWORK.eth;
 // General metadata for Ethereum
 const namePrefix = "ChusbtersInc";
 const description = "Welcome to Chubsters Inc. Here you will find 5000 randomly generated Chubsters. Don't be so scared and join the Chubsters Incoporation, you won't regret it.";
-const baseUri = "ipfs://NewUriToReplace"; // This will be replaced automatically
+const baseUri = "ipfs://bafybeicsfajjsqrt64yz6facvh5uscoe6paxevod3e4p6hoqi4d7gry66a/"; // This will be replaced automatically
 
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
