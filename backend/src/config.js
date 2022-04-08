@@ -51,7 +51,7 @@ const CHAIN = 'rinkeby'; // only rinkeby or polygon
 // REQUIRED CONTRACT DETAILS THAT CANNOT BE UPDATED LATER!
 const CONTRACT_NAME = 'ChusbtersInc';
 const CONTRACT_SYMBOL = 'CBI';
-const METADATA_UPDATABLE = true; // set to false if you don't want to allow metadata updates after minting
+const METADATA_UPDATABLE = false; // set to false if you don't want to allow metadata updates after minting
 const OWNER_ADDRESS = '0x74D78D2584540a8eeF8Fc37EF804583cE22FA948';
 const TREASURY_ADDRESS = '0x74D78D2584540a8eeF8Fc37EF804583cE22FA948';
 const MAX_SUPPLY = 5000; // The maximum number of NFTs that can be minted. CANNOT BE UPDATED!
