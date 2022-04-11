@@ -7,8 +7,8 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "ChusbtersInc";
-const description = "Welcome to Chubsters Inc. Here you will find 5000 randomly generated Chubsters. Don't be so scared and join the Chubsters Incoporation, you won't regret it.";
+const namePrefix = "ChubstersInc";
+const description = "Welcome to Chubsters Inc. Here you will find 5000 randomly generated Chubsters. Don't be scared and join Chubsters Incoporated, you won't regret it.";
 const baseUri = "ipfs://NewUriToReplace"; // This will be replaced automatically
 
 // If you have selected Solana then the collection starts from 0 automatically
