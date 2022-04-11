@@ -1,7 +1,7 @@
 const contractAddress = "0x78A0E889683d08F7Ab6F781eea0B3d4aCE10d7e7"; //Replace with your own contract address
 const chain = 'rinkeby'; // rinkeby or polygon
 
-const welcome_h1 = "Welcome to Chubsters Incorporation!!";
+const welcome_h1 = "Welcome to Chubsters Incorporated!!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
 const welcome_p = "Welcome to Chubsters Inc. Here you will find 5000 randomly generated Chubsters. Don't be scared and join Chubsters Incoporated, you won't regret it."
 const h1_presale_coming_soon = "NFT Drop Coming Soon!!";
