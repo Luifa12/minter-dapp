@@ -1,4 +1,4 @@
-const contractAddress = "0x09ccbF0aCFBf18763F72EC8B946cD71798BaDa29"; //Replace with your own contract address
+const contractAddress = "0x193dfA6A947F6b3b511814dfd3965dCAebb8b0b0"; //Replace with your own contract address
 const chain = 'polygon'; // rinkeby or polygon
 
 const welcome_h1 = "Welcome to Chubsters Incorporated!!";
