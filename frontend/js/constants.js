@@ -3,7 +3,7 @@ const chain = 'polygon'; // rinkeby or polygon
 
 const welcome_h1 = "Welcome to Chubsters Incorporated!!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
-const welcome_p = "Welcome to Chubsters Inc. Here you will find 5000 randomly generated Chubsters. Don't be scared and join Chubsters Incorporated, you won't regret it."
+const welcome_p = "Welcome to Chubsters Inc. Here you will find 5000 randomly generated Chubsters. Don't be scared and join Chubsters Incorporated, you won't regret it. If you have any problem with the mintinh just increase the GWEI. If you don't know how to do itjust join our Discord"
 const h1_presale_coming_soon = "NFT Drop Coming Soon!!";
 const h1_presale_mint = "Pre-Sale Minting Open!!";
 const h1_public_mint = "Public Minting Open!!";
