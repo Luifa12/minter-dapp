@@ -310,38 +310,7 @@ async function mint() {
 
   if (publicMintActive) {
     // PUBLIC MINT
-    try {
-      const mintTransaction = await contract.methods
-        .mint(amount)
-        .send({ from: window.address, value: value.toString() });
-      if(mintTransaction) {
-        if(chain === 'rinkeby') {
-          const url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
-          const mintedContainer = document.querySelector('.minted-container');
-          const countdownContainer = document.querySelector('.countdown');
-          const mintedTxnBtn = document.getElementById("mintedTxnBtn");
-          mintedTxnBtn.href = url;
-          countdownContainer.classList.add('hidden');
-          mintedContainer.classList.remove('hidden');
-        }
-        console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
-      } else {
-        const mainText = document.getElementById("mainText");
-        mainText.innerText = mint_failed;
-        mintButton.innerText = button_public_mint;
-        mintButton.disabled = false;
-
-        console.log("Failed to mint!");
-      }
-    } catch(e) {
-      const mainText = document.getElementById("mainText");
-      mainText.innerText = mint_failed;
-      mintButton.innerText = button_public_mint;
-      mintButton.disabled = false;
-
-      console.log(e);
-    }
-  } else if (presaleMintActive) {
+  
     // PRE-SALE MINTING
     try {
       const merkleData = await fetch(
