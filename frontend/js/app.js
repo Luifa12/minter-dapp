@@ -238,7 +238,77 @@ async function loadInfo() {
   mintInput.setAttribute("max", info.deploymentConfig.tokensPerMint);
 
   // MINT INPUT
+  const mintIncrement = document.getElementById("mintIncrement");
+  const mintDecrement = document.getElementById("mintDecrement");
+  const setQtyMax = document.getElementById("setQtyMax");
+  const min = mintInput.attributes.min.value || false;
+  const max = mintInput.attributes.max.value || false;
+  mintDecrement.onclick = () => {
+    let value = parseInt(mintInput.value) - 1 || 1;
+    if(!min || value >= min) {
+      mintInput.value = value;
+      setTotalPrice()
+    }
+  };
+  mintIncrement.onclick = () => {
+    let value = parseInt(mintInput.value) + 1 || 1;
+    if(!max || value <= max) {
+      mintInput.value = value;
+      setTotalPrice()
+    }
+  };
+  setQtyMax.onclick = () => {
+    mintInput.value = max;
+    setTotalPrice()
+  };
+  mintInput.onchange = () => {
+    setTotalPrice()
+  };
+  mintInput.onkeyup = async (e) => {
+    if (e.keyCode === 13) {
+      mint();
+    }
+  };
+  mintButton.onclick = mint;
+}
 
+function setTotalPrice() {
+  const mintInput = document.getElementById("mintInput");
+  const mintInputValue = parseInt(mintInput.value);
+  const totalPrice = document.getElementById("totalPrice");
+  const mintButton = document.getElementById("mintButton");
+  if(mintInputValue < 1 || mintInputValue > info.deploymentConfig.tokensPerMint) {
+    totalPrice.innerText = 'INVALID QUANTITY';
+    mintButton.disabled = true;
+    mintInput.disabled = true;
+    return;
+  }
+  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice) * BigInt(mintInputValue);
+  
+  let priceType = '';
+  if(chain === 'rinkeby') {
+    priceType = 'ETH';
+  } else if (chain === 'polygon') {
+    priceType = 'MATIC';
+  }
+  const price = web3.utils.fromWei(totalPriceWei.toString(), 'ether');
+  totalPrice.innerText = `${price} ${priceType}`;
+  mintButton.disabled = true;
+  mintInput.disabled = true;
+}
+
+async function mint() {
+  const mintButton = document.getElementById("mintButton");
+  mintButton.disabled = true;
+  const spinner = '<div class="dot-elastic"></div><span>Waiting for transaction...</span>';
+  mintButton.innerHTML = spinner;
+
+  const amount = parseInt(document.getElementById("mintInput").value);
+  const value = BigInt(info.deploymentConfig.mintPrice) * BigInt(amount);
+  const publicMintActive = await contract.methods.mintingActive().call();
+  const presaleMintActive = await contract.methods.presaleActive().call();
+
+  if (publicMintActive) {
     // PUBLIC MINT
     try {
       const mintTransaction = await contract.methods
